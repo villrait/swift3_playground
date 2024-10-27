@@ -31,3 +31,28 @@ func fibanachi(_ int: Int) -> Int {
 }
 
 fibanachi(6)
+
+
+//7. Напишите программу для сортировки массива, использующую метод пузырька. Сортировка должна происходить в отдельной функции, принимающей на вход исходный массив.
+
+func bubbleSort(array: [Int]) -> [Int] {
+    var arr = array
+    var n = arr.count
+    for i in 0..<n-1 {
+        for j in 0..<n-i-1 {
+            if arr[j] > arr[j+1] {
+                let temp = arr [j]
+                arr[j] = arr[j+1]
+                arr[j+1] = temp
+            }
+        }
+    }
+    return arr
+}
+
+let bubble = bubbleSort(array: [3,2,5,1,8,0])
+
+// ну или такой вариант мне более привычен и понятен(потому что чем больше в дебри логики кода начинаешь уходить, тем меньше я его понимаю)
+//
+//let bubble2 = [5,4,3,2,1]
+//bubble2.sorted { $0 < $1 }
