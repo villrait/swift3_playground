@@ -16,3 +16,18 @@ func printValueDouble(variable: Double?){
 
 printValueDouble(variable: doubleOptional)
 printValueDouble(variable: doubleOptional2)
+
+
+//6. Напишите программу для вывода первых 15 чисел последовательности Фибоначчи
+
+func fibanachi(_ int: Int) -> Int {
+    if int == 0 {
+        return 0
+    } else if int == 1 {
+        return 1
+    } else {
+        return fibanachi(int - 1) + fibanachi(int - 2)
+    }
+}
+
+fibanachi(6)
