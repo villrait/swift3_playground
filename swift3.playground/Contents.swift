@@ -49,3 +49,32 @@ func repeatTask (times: Int, task: () -> Void) {
 }
 
 repeatTask(times: 10, task: myClosure)
+
+
+//10. Условия: есть начальная позиция на двумерной плоскости, можно осуществлять последовательность шагов по четырем направлениям up, down, left, right. Размерность каждого шага равна 1. Создать перечисление Directions с направлениями движения. Создать переменную location с начальными координатами (0,0), создать массив элементами которого будут направления из перечисления. Положить в этот массив следующую последовательность шагов: [.up, .up, .left, .down, .left, .down, .down, .right, .right, .down, .right]. Програмно вычислить какие будут координаты у переменной location после выполнения этой последовательности шагов.
+
+enum Directions {
+    case up
+    case left
+    case right
+    case down
+}
+
+var location = (x: 0, y: 0)
+
+var steps: [Directions] = [.up, .up, .left, .down, .left, .down, .down, .right, .right, .down, .right]
+
+for step in steps {
+    switch step {
+    case .right:
+        location.x += 1
+    case .left:
+        location.x -= 1
+    case .up:
+        location.y += 1
+    case .down:
+        location.y -= 1
+    }
+}
+
+print(location)
