@@ -32,3 +32,20 @@ func addNumberToString(text: String) -> String {
 }
 
 var text2 = addNumberToString(text: text)
+
+
+//9. Написать простое замыкание в переменной myClosure, замыкание должно выводить в консоль фразу "I love Swift". Вызвать это замыкание. Далее написать функцию, которая будет запускать заданное замыкание заданное количество раз. Объявить функцию так: func repeatTask (times: Int, task: () -> Void). Функция должна запускать times раз замыкание task . Используйте эту функцию для печати «I love Swift» 10 раз.
+
+var myClosure = {
+    print("I love Swift")
+}
+
+myClosure
+
+func repeatTask (times: Int, task: () -> Void) {
+    for i in 0..<times {
+        task()
+    }
+}
+
+repeatTask(times: 10, task: myClosure)
