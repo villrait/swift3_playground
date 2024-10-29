@@ -21,3 +21,14 @@ class Rectangle {
 var rectangle = Rectangle(width: 5, length: 10)
 
 rectangle.perimeterCalc()
+
+
+//12. Создать расширение класса Rectangle, которое будет обладать вычисляемым свойством площадь. Вывести в консоль площадь уже ранее созданного объекта.
+
+extension Rectangle {
+    var area: Int {
+        return width * length
+    }
+}
+
+print("area = \(rectangle.area)")
