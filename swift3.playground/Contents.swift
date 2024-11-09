@@ -4,7 +4,7 @@ import UIKit
 
 var text = "abc123"
 
-func addNumberToString(text: String) -> String {
+func incrementClosingNumber(in text: String) -> String {
     var letters = ""
     var number = 0
     var resultText = ""
@@ -31,8 +31,8 @@ func addNumberToString(text: String) -> String {
     return resultText
 }
 
-var text2 = addNumberToString(text: text)
-
+var text2 = incrementClosingNumber(in: text)
+print(text2)
 
 //9. Написать простое замыкание в переменной myClosure, замыкание должно выводить в консоль фразу "I love Swift". Вызвать это замыкание. Далее написать функцию, которая будет запускать заданное замыкание заданное количество раз. Объявить функцию так: func repeatTask (times: Int, task: () -> Void). Функция должна запускать times раз замыкание task . Используйте эту функцию для печати «I love Swift» 10 раз.
 
@@ -40,9 +40,9 @@ var myClosure = {
     print("I love Swift")
 }
 
-myClosure
+myClosure()
 
-func repeatTask (times: Int, task: () -> Void) {
+func repeatTask(times: Int, task: () -> Void) {
     for i in 0..<times {
         task()
     }
