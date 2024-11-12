@@ -78,3 +78,31 @@ for step in steps {
 }
 
 print(location)
+
+
+
+print("test abc123______________________")
+
+
+
+
+//func splitAndMerge(text: String) -> String {
+//    var characters = ""
+//    
+//    for char in text {
+//        if char.isNumber {
+//            let number = Int(String(char))! + 1
+//            characters += String(number)
+//        } else {
+//            characters += String(char)
+//        }
+//    }
+//    
+//    return characters
+//}
+//
+//let text1 = "abc123de"
+//let text3 = splitAndMerge(text: text1)
+//print(text3)
+
+
