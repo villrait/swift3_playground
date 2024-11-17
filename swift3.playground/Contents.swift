@@ -1,39 +1,39 @@
 import UIKit
 
+print("Task N8")
 //8. Напишите программу, решающую задачу: есть входящая строка формата "abc123", где сначала идет любая последовательность букв, потом число. Необходимо получить новую строку, в конце которой будет число на единицу больше предыдущего, то есть "abc124".
 
-var text = "abc123"
-
-func incrementClosingNumber(in text: String) -> String {
-    var letters = ""
-    var number = 0
-    var resultText = ""
-    var currentNumber = ""
+func incrementNumber(_ string: String) -> String {
+    var result = string
+    var lastNumberRange: Range<String.Index>?
     
-    for char in text {
-        if char.isNumber {
-            currentNumber += String(char)
-        } else {
-            letters += String(char)
-            if !currentNumber.isEmpty {
-                number += Int(currentNumber)!
-                currentNumber = ""
-            }
+    for number in string.components(separatedBy: CharacterSet.decimalDigits.inverted) {
+        if let num = Int(number) {
+            lastNumberRange = string.range(of: number)
         }
     }
     
-    if !currentNumber.isEmpty {
-        number += Int(currentNumber)!
+    if let range = lastNumberRange{
+        if let num = Int(string[range]) {
+            let incrementNumber = num + 1
+            result.replaceSubrange(range, with: String(incrementNumber))
+        }
     }
     
-    resultText = letters + String(number + 1)
-    
-    return resultText
+    return result
 }
 
-var text2 = incrementClosingNumber(in: text)
-print(text2)
+var text1 = "abc123"
+var text2 = "abc123de"
 
+var increment1 = incrementNumber(text1)
+var increment2 = incrementNumber(text2)
+
+print("increment abc123 = \(increment1)")
+print("increment abc123de = \(increment2)")
+
+
+print("\nTask N9")
 //9. Написать простое замыкание в переменной myClosure, замыкание должно выводить в консоль фразу "I love Swift". Вызвать это замыкание. Далее написать функцию, которая будет запускать заданное замыкание заданное количество раз. Объявить функцию так: func repeatTask (times: Int, task: () -> Void). Функция должна запускать times раз замыкание task . Используйте эту функцию для печати «I love Swift» 10 раз.
 
 var myClosure = {
@@ -53,6 +53,8 @@ repeatTask(times: 10, task: myClosure)
 
 //10. Условия: есть начальная позиция на двумерной плоскости, можно осуществлять последовательность шагов по четырем направлениям up, down, left, right. Размерность каждого шага равна 1. Создать перечисление Directions с направлениями движения. Создать переменную location с начальными координатами (0,0), создать массив элементами которого будут направления из перечисления. Положить в этот массив следующую последовательность шагов: [.up, .up, .left, .down, .left, .down, .down, .right, .right, .down, .right]. Програмно вычислить какие будут координаты у переменной location после выполнения этой последовательности шагов.
 
+
+print("\nTask N10")
 enum Directions {
     case up
     case left
@@ -78,31 +80,4 @@ for step in steps {
 }
 
 print(location)
-
-
-
-print("test abc123______________________")
-
-
-
-
-//func splitAndMerge(text: String) -> String {
-//    var characters = ""
-//    
-//    for char in text {
-//        if char.isNumber {
-//            let number = Int(String(char))! + 1
-//            characters += String(number)
-//        } else {
-//            characters += String(char)
-//        }
-//    }
-//    
-//    return characters
-//}
-//
-//let text1 = "abc123de"
-//let text3 = splitAndMerge(text: text1)
-//print(text3)
-
 
