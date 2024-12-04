@@ -7,23 +7,29 @@ protocol Testable {
 }
 
 class RectangleTask: Testable {
-    let width = 4
-    let lenght = 10
+    let width: Int
+    let lenght: Int
     
-    private func perimeterCalc() -> Int {
-
-        let p = (width + lenght) * 2
-        return p
+    init(width: Int, lenght: Int) {
+        self.width = width
+        self.lenght = lenght
+    }
+    
+    private func calcPerimeter() -> Int {
+        (width + lenght) * 2
     }
     
     func runTest() {
-        var rectangle = perimeterCalc()
+        let rectangle = calcPerimeter()
         print("Perimeter = \(rectangle)")
     }
     
 }
 
-let tasks: [Testable] = [RectangleTask()]
+let rectangle1 = RectangleTask(width: 4, lenght: 10)
+let rectangle2 = RectangleTask(width: 3, lenght: 6)
+
+let tasks: [Testable] = [rectangle1, rectangle2]
 
 for task in tasks {
     task.runTest()
@@ -38,5 +44,5 @@ extension RectangleTask {
     }
 }
 
-let rectangle = RectangleTask()
+let rectangle = RectangleTask(width: 4, lenght: 10)
 print("Area = \(rectangle.area)")
