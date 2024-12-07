@@ -84,6 +84,7 @@ class LocationTask: Testable {
     }
 
     func runTest() {
+        processSteps()
         print(location)
     }
 }
